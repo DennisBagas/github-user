@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">GithubProject</string>
+
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashbaord_heading">Find Amaizing events happening around you.</string>
+    <string name="dashboard_sub_title">480 events around you</string>
+    <string name="search_bar_hint">Search for an event...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- MAIN SECTION -->
+    <!--SEARCH SECTION-->
+    <string name="search">Search</string>
+    <string name="search_hint">Search...</string>
+
+    <!--ADAPTER SECTION-->
+    <string name="adapter_user_name">Nama User</string>
+    <string name="adapter_user_id">ID User</string>
+
+
+    <!-- PROFILE SECTION -->
+    <!-- SECTION 1 -->
+    <string name="profile_name">Nama Profile</string>
+    <string name="profile_id">User ID</string>
+
+    <!-- Following Section String -->
+    <string name="following_section_label">Following Page</string>
+    <string name="tab_following_section">Following</string>
+
+    <!-- Followers Section String -->
+    <string name="followers_section_label">Followers Page</string>
+    <string name="tab_followers_section">Followers</string>
+
+
+</resources>
