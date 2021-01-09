@@ -48,16 +48,6 @@ class UserProfile : AppCompatActivity(), View.OnClickListener {
 
         val button = findViewById<ToggleButton>(R.id.btn_toggle)
 
-        /*
-        val profilePagerAdapter = ProfileSectionAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
-        viewPager.adapter = profilePagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
-
-        supportActionBar?.elevation = 0f
-        */
-
         noteHelper = NoteHelper.getInstance(applicationContext)
 
         getProfileApi()
