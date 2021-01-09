@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.example.githubproject.data.api.db.DatabaseContract.NoteColumns.Companion.TABLE_NAME
 import com.example.githubproject.data.api.db.DatabaseContract.NoteColumns.Companion._ID
+import com.example.githubproject.favorite.FavoriteActivity
 import java.sql.SQLException
 
 class NoteHelper(context: Context) {

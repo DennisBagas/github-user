@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.githubproject.MainActivity
 import com.example.githubproject.R
 import com.example.githubproject.adapter.profile.FollowingAdapter
 import com.example.githubproject.data.api.ApiService
@@ -32,6 +34,20 @@ class FollowingActivity : AppCompatActivity() {
 
         setRecycler()
         getApiFollowing()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.to_home_menu, menu)
+
+        val to_home = menu.findItem(R.id.to_home)
+
+        to_home.setOnMenuItemClickListener {
+            startActivity(
+                    Intent(applicationContext, MainActivity::class.java)
+            )
+            return@setOnMenuItemClickListener true
+        }
+        return true
     }
 
     private fun setRecycler(){

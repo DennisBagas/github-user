@@ -10,7 +10,7 @@
         android:id="@+id/rv_following"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/black"
         tools:listitem="@layout/list_user_home"/>
 
     <ProgressBar

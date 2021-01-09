@@ -16,8 +16,8 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
                 "(${DatabaseContract.NoteColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "${DatabaseContract.NoteColumns.LOGIN} TEXT NOT NULL, " +
                 "${DatabaseContract.NoteColumns.NAME} TEXT NOT NULL, " +
-                "${DatabaseContract.NoteColumns.AVATAR} TEXT NOT NULL, " +
-                "${DatabaseContract.NoteColumns.URL} TEXT NOT NULL, " +
+                "${DatabaseContract.NoteColumns.AVATAR_URL} TEXT NOT NULL, " +
+                "${DatabaseContract.NoteColumns.HTML_URL} TEXT NOT NULL, " +
                 "${DatabaseContract.NoteColumns.FOLLOWERS} TEXT NOT NULL, " +
                 "${DatabaseContract.NoteColumns.FOLLOWING} TEXT NOT NULL)"
     }

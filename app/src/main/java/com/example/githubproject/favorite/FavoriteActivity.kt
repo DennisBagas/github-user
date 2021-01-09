@@ -13,13 +13,11 @@ import com.example.githubproject.data.api.db.helper.MappingHelper
 import com.example.githubproject.databinding.ActivityFavoriteBinding
 import com.example.githubproject.model.userData
 import com.example.githubproject.profile.UserProfile
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import java.sql.Array
 
 class FavoriteActivity : AppCompatActivity() {
 
@@ -53,6 +51,9 @@ class FavoriteActivity : AppCompatActivity() {
             }
         }
 
+        noteHelper = NoteHelper.getInstance(applicationContext)
+        noteHelper.open()
+
         RecyclerFavorite()
     }
 
@@ -68,9 +69,6 @@ class FavoriteActivity : AppCompatActivity() {
                 )}
         })
         binding.rvFavorite.adapter = favoriteAdapter
-
-        noteHelper = NoteHelper.getInstance(applicationContext)
-        noteHelper.open()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

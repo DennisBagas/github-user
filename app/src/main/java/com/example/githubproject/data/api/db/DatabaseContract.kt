@@ -10,8 +10,8 @@ internal class DatabaseContract {
             const val _ID = "_id"
             const val LOGIN = "login"
             const val NAME = "name"
-            const val URL = "url"
-            const val AVATAR = "avatar"
+            const val HTML_URL = "html_url"
+            const val AVATAR_URL = "avatar_url"
             const val FOLLOWERS = "followers"
             const val FOLLOWING = "following"
         }

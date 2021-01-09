@@ -14,12 +14,12 @@ object MappingHelper {
                 val id = getInt(getColumnIndexOrThrow(DatabaseContract.NoteColumns._ID))
                 val login = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.LOGIN))
                 val name = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.NAME))
-                val html_url = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.URL))
-                val avatar_url = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.AVATAR))
+                val html_url = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.HTML_URL))
+                val avatar_url = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.AVATAR_URL))
                 val followers = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.FOLLOWERS))
                 val following = getString(getColumnIndexOrThrow(DatabaseContract.NoteColumns.FOLLOWING))
 
-                notesList.add(userData(id,login, name, html_url, avatar_url, followers, following))
+                notesList.add(userData(id, login, avatar_url, name, followers, following, html_url))
             }
         }
         return notesList

@@ -1,46 +1,26 @@
 package com.example.githubproject.adapter.favorite
 
-import android.app.Activity
-import android.content.Intent
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat.startActivity
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.githubproject.MainActivity
 import com.example.githubproject.R
-import com.example.githubproject.databinding.FavoriteUserAdapterBinding
+import com.example.githubproject.data.api.db.NoteHelper
 import com.example.githubproject.favorite.FavoriteActivity
 import com.example.githubproject.model.userData
-import com.example.githubproject.profile.UserProfile
 
 class FavoriteAdapter(var listFavorite: ArrayList<userData>, val listener: onAdapterListener): RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
 
-
-
-    /*
-        set(listFavorite){
-            if (listFavorite.size > 0) {
-                this.listFavorite.clear()
-            }
-            this.listFavorite.addAll(listFavorite)
-
-            notifyDataSetChanged()
-        }
-         */
-
-    fun addItem(user: userData) {
-        this.listFavorite.add(user)
-        notifyItemInserted(this.listFavorite.size - 1)
-    }
-
-    fun updateItem(position: Int, note: userData) {
-        this.listFavorite[position] = note
-        notifyItemChanged(position, note)
-    }
+    private var isEdit = false
+    private var user: userData? = null
+    private var position: Int = 0
+    private lateinit var noteHelper: NoteHelper
+    private lateinit var context : Context
 
     fun removeItem(position: Int) {
         this.listFavorite.removeAt(position)
@@ -48,7 +28,13 @@ class FavoriteAdapter(var listFavorite: ArrayList<userData>, val listener: onAda
         notifyItemRangeChanged(position, this.listFavorite.size)
     }
 
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        context = recyclerView.context
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
+        noteHelper = NoteHelper.getInstance(context)
         return FavoriteViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.favorite_user_adapter, parent, false))
     }
 
@@ -65,6 +51,14 @@ class FavoriteAdapter(var listFavorite: ArrayList<userData>, val listener: onAda
                 .placeholder(R.drawable.img_placeholder)
                 .centerCrop()
                 .into(holder.view.findViewById(R.id.image_favorite))
+
+        holder.view.findViewById<ImageView>(R.id.delete_favorite).setOnClickListener{
+            Toast.makeText(context, "Ke Klik kok", Toast.LENGTH_SHORT).show()
+            val result = noteHelper.deleteById(favorite.id.toString()).toLong()
+            if (result > 0) {
+                removeItem(position)
+            }
+        }
 
         //CLICK LISTENER FAVORITE
         holder.view.setOnClickListener{
